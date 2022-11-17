@@ -6,8 +6,8 @@ module.exports = function ValidateUser(data) {
   data.Email = !isEmpty(data.Email) ? data.Email : "";
   data.Lastname = !isEmpty(data.Lastname) ? data.Lastname : "";
   data.Firstname = !isEmpty(data.Firstname) ? data.Firstname : "";
-  data.Age = !isEmpty(data.Age) ? data.Age : "";
- 
+  data.DOB = !isEmpty(data.DOB) ? data.DOB : "";
+
   if (!validator.isEmail(data.Email)) {
     errors.Email = "Format Email required";
   }
@@ -20,12 +20,12 @@ module.exports = function ValidateUser(data) {
   if (validator.isEmpty(data.Firstname)) {
     errors.Firstname = "Required Firstname";
   }
-  if (validator.isEmpty(data.Age)) {
-    errors.Age = "Required Email";
+  if (validator.isEmpty(data.DOB)) {
+    errors.DOB = "Required DOB";
   }
 
   return {
-      errors,
-      isValid: isEmpty(errors)
+    errors,
+    isValid: isEmpty(errors)
   }
 };

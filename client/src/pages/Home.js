@@ -17,41 +17,41 @@ function Home() {
       ...form,
       [e.target.name]: e.target.value,
     });
-    
+
   };
 
-  const onSubmitHandler = (e)=>{
+  const onSubmitHandler = (e) => {
     e.preventDefault();
     axios.post('/api/users', form)
-    .then(res=>{
-      setMessage(res.data.message)
-      /* hide form after save */
-      setForm({})
-      /* hide errors after save */
-      setErrors({})
-      setShow(true)
-      setTimeout(() => {
-        setShow(false)
-      }, 4000);
-    })
-    .catch(err=>setErrors(err.response.data))
-    
+      .then(res => {
+        setMessage(res.data.message)
+        /* hide form after save */
+        setForm({})
+        /* hide errors after save */
+        setErrors({})
+        setShow(true)
+        setTimeout(() => {
+          setShow(false)
+        }, 4000);
+      })
+      .catch(err => setErrors(err.response.data))
+
   }
 
   /* delete */
-  const OnDelete = (id__)=>{
-    if(window.confirm("are you sure to delete this user")){
- 
-     axios.delete(`/api/users/${id__}`)
-     .then(res=>{
-      setMessage(res.data.message)
-      setShow(true)
-      setTimeout(() => {
-        setShow(false)
-      }, 4000);
-     })
+  const OnDelete = (id__) => {
+    if (window.confirm("are you sure to delete this user")) {
+
+      axios.delete(`/api/users/${id__}`)
+        .then(res => {
+          setMessage(res.data.message)
+          setShow(true)
+          setTimeout(() => {
+            setShow(false)
+          }, 4000);
+        })
     }
-   }
+  }
   /* find all users */
   useEffect(async () => {
     await axios.get("/api/users").then((res) => {
@@ -60,9 +60,9 @@ function Home() {
   });
   return (
     <div className="row p-4">
-      <Alert message={message} show={show}/>
+      <Alert message={message} show={show} />
       <div className="mt-4">
-        <h2>Crud Users</h2>
+        <h2>Users Management</h2>
       </div>
       <div className="col-12 col-lg-4">
         <form onSubmit={onSubmitHandler}>
@@ -88,11 +88,11 @@ function Home() {
             errors={errors.Firstname}
           />
           <InputGroup
-            label="Age"
-            type="text"
-            name="Age"
+            label="DOB"
+            type="date"
+            name="DOB"
             onChangeHandler={onChangeHandler}
-            errors={errors.Age}
+            errors={errors.DOB}
           />
           <button className="btn btn-primary" type="submit">Add user</button>
         </form>
@@ -104,17 +104,17 @@ function Home() {
               <th scope="col">Email</th>
               <th scope="col">Lastname</th>
               <th scope="col">Firstname</th>
-              <th scope="col">Age</th>
+              <th scope="col">DOB</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {users.map(({ Email, Lastname, Firstname, Age, _id }) => (
+            {users.map(({ Email, Lastname, Firstname, DOB, _id }) => (
               <RowDetails
                 Email={Email}
                 Lastname={Lastname}
                 Firstname={Firstname}
-                Age={Age}
+                DOB={DOB}
                 Id={_id}
                 OnDelete={OnDelete}
               />
