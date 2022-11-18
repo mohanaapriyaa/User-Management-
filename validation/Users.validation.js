@@ -4,8 +4,7 @@ const validator = require("validator");
 module.exports = function ValidateUser(data) {
   let errors = {};
   data.Email = !isEmpty(data.Email) ? data.Email : "";
-  data.Lastname = !isEmpty(data.Lastname) ? data.Lastname : "";
-  data.Firstname = !isEmpty(data.Firstname) ? data.Firstname : "";
+  data.Name = !isEmpty(data.Name) ? data.Name : "";
   data.DOB = !isEmpty(data.DOB) ? data.DOB : "";
 
   if (!validator.isEmail(data.Email)) {
@@ -14,11 +13,8 @@ module.exports = function ValidateUser(data) {
   if (validator.isEmpty(data.Email)) {
     errors.Email = "Required Email";
   }
-  if (validator.isEmpty(data.Lastname)) {
-    errors.Lastname = "Required Lastname";
-  }
-  if (validator.isEmpty(data.Firstname)) {
-    errors.Firstname = "Required Firstname";
+  if (validator.isEmpty(data.Name)) {
+    errors.Name = "Required Name";
   }
   if (validator.isEmpty(data.DOB)) {
     errors.DOB = "Required DOB";

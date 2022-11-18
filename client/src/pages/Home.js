@@ -74,18 +74,11 @@ function Home() {
             errors={errors.Email}
           />
           <InputGroup
-            label="Lastname"
+            label="Name"
             type="text"
-            name="Lastname"
+            name="Name"
             onChangeHandler={onChangeHandler}
-            errors={errors.Lastname}
-          />
-          <InputGroup
-            label="Firstname"
-            type="text"
-            name="Firstname"
-            onChangeHandler={onChangeHandler}
-            errors={errors.Firstname}
+            errors={errors.Name}
           />
           <InputGroup
             label="DOB"
@@ -102,18 +95,16 @@ function Home() {
           <thead>
             <tr>
               <th scope="col">Email</th>
-              <th scope="col">Lastname</th>
-              <th scope="col">Firstname</th>
+              <th scope="col">Name</th>
               <th scope="col">DOB</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {users.map(({ Email, Lastname, Firstname, DOB, _id }) => (
+            {users.map(({ Email, Name, DOB, _id }) => (
               <RowDetails
                 Email={Email}
-                Lastname={Lastname}
-                Firstname={Firstname}
+                Name={Name}
                 DOB={DOB}
                 Id={_id}
                 OnDelete={OnDelete}

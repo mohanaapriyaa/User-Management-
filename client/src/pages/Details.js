@@ -45,20 +45,12 @@ function Details() {
           value={form.Email}
         />
         <InputGroup
-          label="Lastname"
+          label="Name"
           type="text"
-          name="Lastname"
+          name="Name"
           onChangeHandler={onChangeHandler}
-          errors={errors.Lastname}
-          value={form.Lastname}
-        />
-        <InputGroup
-          label="Firstname"
-          type="text"
-          name="Firstname"
-          onChangeHandler={onChangeHandler}
-          errors={errors.Firstname}
-          value={form.Firstname}
+          errors={errors.Name}
+          value={form.Name}
         />
         <InputGroup
           label="DOB"

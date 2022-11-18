@@ -2,13 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function RowDetails({ Email, Lastname, Firstname, DOB, Id, OnDelete }) {
+function RowDetails({ Email, Name, DOB, Id, OnDelete }) {
 
   return (
     <tr>
       <th>{Email}</th>
-      <td>{Lastname}</td>
-      <td>{Firstname}</td>
+      <td>{Name}</td>
       <td>{DOB}</td>
       <td className="gap__actions">
         <span className="badge bg-info">
